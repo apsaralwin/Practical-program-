@@ -1,0 +1,9 @@
+def hanoi_simple(n, src, dest, aux):
+    if n > 0:
+        hanoi_simple(n-1, src, aux, dest)
+        print(f"Move disk {n} from {src} to {dest}")
+        hanoi_simple(n-1, aux, dest, src)
+
+for disks in [1, 2, 3]:
+    print(f"\n{disks} disk(s):")
+    hanoi_simple(disks, 'A', 'C', 'B')

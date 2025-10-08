@@ -1,0 +1,23 @@
+from itertools import permutations
+
+def tsp_simple(graph):
+    n = len(graph)
+    min_dist = float('inf')
+    
+    for path in permutations(range(1, n)):
+        total = graph[0][path[0]]
+        for i in range(len(path)-1):
+            total += graph[path[i]][path[i+1]]
+        total += graph[path[-1]][0]
+        min_dist = min(min_dist, total)
+    
+    return min_dist
+
+graph = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
+print(f"Shortest route distance: {tsp_simple(graph)}")

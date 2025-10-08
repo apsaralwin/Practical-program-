@@ -1,0 +1,33 @@
+class Monkey:
+    def __init__(self):
+        self.height = 0
+        self.position = None
+        self.has_banana = False
+
+class World:
+    def __init__(self):
+        self.positions = ["A", "B", "C"]
+        self.monkey = Monkey()
+        self.box_position = "B"
+        self.tree_position = "C"
+        
+    def solve(self):
+        print("1. Monkey moves to position B")
+        self.monkey.position = "B"
+        
+        print("2. Monkey pushes box to position C")
+        self.monkey.position = "C"
+        self.box_position = "C"
+        
+        print("3. Monkey climbs the box")
+        self.monkey.height = 2
+        
+        print("4. Monkey takes the banana!")
+        self.monkey.has_banana = True
+        
+        return "Success! Monkey got the banana."
+
+world = World()
+world.monkey.position = "A"
+result = world.solve()
+print(f"\nResult: {result}")
